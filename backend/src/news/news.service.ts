@@ -1,6 +1,6 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Repository } from 'typeorm';
+import { DeepPartial, Repository } from 'typeorm';
 import { News } from './entities/news.entity';
 import { CreateNewsDto } from './dto/create-news.dto';
 import { UpdateNewsDto } from './dto/update-news.dto';
@@ -13,7 +13,7 @@ export class NewsService {
   ) {}
 
   async create(createNewsDto: CreateNewsDto): Promise<News> {
-    const news = this.newsRepository.create(createNewsDto);
+    const news = this.newsRepository.create(createNewsDto as DeepPartial<News>);
     if (createNewsDto.isPublished) {
       news.publishedAt = new Date();
     }

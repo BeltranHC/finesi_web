@@ -20,7 +20,10 @@ import { TeachersModule } from './teachers/teachers.module';
         host: configService.get<string>('DATABASE_HOST', 'localhost'),
         port: configService.get<number>('DATABASE_PORT', 5433),
         username: configService.get<string>('DATABASE_USER', 'finesi_user'),
-        password: configService.get<string>('DATABASE_PASSWORD', 'finesi_password'),
+        password: configService.get<string>(
+          'DATABASE_PASSWORD',
+          'finesi_password',
+        ),
         database: configService.get<string>('DATABASE_NAME', 'finesi_db'),
         entities: [__dirname + '/**/*.entity{.ts,.js}'],
         synchronize: configService.get<string>('NODE_ENV') === 'development',
