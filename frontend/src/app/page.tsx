@@ -4,7 +4,7 @@ export default function Home() {
   return (
     <div>
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-blue-900 to-blue-700 text-white py-20">
+      <section className="bg-linear-to-r from-blue-900 to-blue-700 text-white py-20">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl">
             <h1 className="text-4xl md:text-5xl font-bold mb-6">
@@ -66,7 +66,7 @@ export default function Home() {
           <div className="grid md:grid-cols-3 gap-8">
             {/* Estadística */}
             <div className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition">
-              <div className="h-48 bg-gradient-to-br from-blue-600 to-blue-800 flex items-center justify-center">
+              <div className="h-48 bg-linear-to-br from-blue-600 to-blue-800 flex items-center justify-center">
                 <span className="text-6xl">📊</span>
               </div>
               <div className="p-6">
@@ -88,7 +88,7 @@ export default function Home() {
 
             {/* Informática */}
             <div className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition">
-              <div className="h-48 bg-gradient-to-br from-green-600 to-green-800 flex items-center justify-center">
+              <div className="h-48 bg-linear-to-br from-green-600 to-green-800 flex items-center justify-center">
                 <span className="text-6xl">💻</span>
               </div>
               <div className="p-6">
@@ -110,7 +110,7 @@ export default function Home() {
 
             {/* Sistemas */}
             <div className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition">
-              <div className="h-48 bg-gradient-to-br from-purple-600 to-purple-800 flex items-center justify-center">
+              <div className="h-48 bg-linear-to-br from-purple-600 to-purple-800 flex items-center justify-center">
                 <span className="text-6xl">🔧</span>
               </div>
               <div className="p-6">

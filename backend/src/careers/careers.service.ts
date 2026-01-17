@@ -42,8 +42,8 @@ export class CareersService {
 
   async update(id: string, updateCareerDto: UpdateCareerDto): Promise<Career> {
     const career = await this.findOne(id);
-    Object.assign(career, updateCareerDto);
-    return await this.careersRepository.save(career);
+    const updatedCareer = Object.assign(career, updateCareerDto) as Career;
+    return await this.careersRepository.save(updatedCareer);
   }
 
   async remove(id: string): Promise<void> {

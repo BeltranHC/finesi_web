@@ -51,8 +51,8 @@ export class NewsService {
     if (updateNewsDto.isPublished && !news.publishedAt) {
       news.publishedAt = new Date();
     }
-    Object.assign(news, updateNewsDto);
-    return await this.newsRepository.save(news);
+    const updatedNews = Object.assign(news, updateNewsDto) as News;
+    return await this.newsRepository.save(updatedNews);
   }
 
   async remove(id: string): Promise<void> {

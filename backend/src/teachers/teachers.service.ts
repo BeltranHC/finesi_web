@@ -46,8 +46,8 @@ export class TeachersService {
 
   async update(id: string, updateTeacherDto: UpdateTeacherDto): Promise<Teacher> {
     const teacher = await this.findOne(id);
-    Object.assign(teacher, updateTeacherDto);
-    return await this.teachersRepository.save(teacher);
+    const updatedTeacher = Object.assign(teacher, updateTeacherDto) as Teacher;
+    return await this.teachersRepository.save(updatedTeacher);
   }
 
   async remove(id: string): Promise<void> {
