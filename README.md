@@ -10,7 +10,7 @@ Este es un proyecto web para la Facultad de Ingeniería Estadística e Informát
 
 ## Estructura del Proyecto
 
-```
+```text
 finesi_web/
 ├── frontend/          # Aplicación Next.js
 ├── backend/           # API NestJS
@@ -33,8 +33,9 @@ docker-compose up -d
 ```
 
 Esto iniciará:
+
 - PostgreSQL en el puerto 5433
-- pgAdmin en el puerto 5050 (http://localhost:5050)
+- pgAdmin en el puerto 5050: <http://localhost:5050>
 
 ### 2. Configurar el Backend
 
@@ -45,7 +46,7 @@ npm install
 npm run start:dev
 ```
 
-El backend estará disponible en http://localhost:3001
+El backend estará disponible en: <http://localhost:3001>
 
 ### 3. Configurar el Frontend
 
@@ -55,27 +56,31 @@ npm install
 npm run dev
 ```
 
-El frontend estará disponible en http://localhost:3000
+El frontend estará disponible en: <http://localhost:3000>
 
 ## Credenciales por Defecto
 
 ### PostgreSQL
+
 - **Usuario**: finesi_user
 - **Contraseña**: finesi_password
 - **Base de datos**: finesi_db
 
 ### pgAdmin
-- **Email**: admin@finesi.edu.pe
+
+- **Email**: `admin@finesi.edu.pe`
 - **Contraseña**: admin123
 
 ## Scripts Disponibles
 
 ### Frontend
+
 - `npm run dev` - Inicia el servidor de desarrollo
 - `npm run build` - Compila la aplicación
 - `npm run start` - Inicia la aplicación en producción
 
 ### Backend
+
 - `npm run start:dev` - Inicia el servidor en modo desarrollo
 - `npm run build` - Compila la aplicación
 - `npm run start:prod` - Inicia en modo producción
