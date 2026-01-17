@@ -33,7 +33,7 @@ docker-compose up -d
 ```
 
 Esto iniciará:
-- PostgreSQL en el puerto 5432
+- PostgreSQL en el puerto 5433
 - pgAdmin en el puerto 5050 (http://localhost:5050)
 
 ### 2. Configurar el Backend
