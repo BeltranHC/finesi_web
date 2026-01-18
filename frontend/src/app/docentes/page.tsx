@@ -46,7 +46,7 @@ export default async function TeachersPage() {
                     {teacher.imageUrl ? (
                       <img
                         src={teacher.imageUrl}
-                        alt={teacher.name}
+                        alt={`${teacher.firstName} ${teacher.lastName}`}
                         className="w-full h-full object-cover"
                       />
                     ) : (
@@ -55,36 +55,29 @@ export default async function TeachersPage() {
                   </div>
                   <div className="p-6">
                     <h2 className="text-xl font-bold mb-1 text-gray-800">
-                      {teacher.name}
+                      {teacher.firstName} {teacher.lastName}
                     </h2>
                     <p className="text-blue-600 font-medium mb-2">
-                      {teacher.position}
+                      {teacher.degree || teacher.category}
                     </p>
                     <p className="text-gray-500 text-sm mb-3">
                       {teacher.email}
                     </p>
                     
-                    {teacher.specialties && teacher.specialties.length > 0 && (
+                    {teacher.specialization && (
                       <div className="mb-4">
                         <h3 className="text-sm font-semibold text-gray-700 mb-2">
-                          Especialidades:
+                          Especialización:
                         </h3>
-                        <div className="flex flex-wrap gap-1">
-                          {teacher.specialties.slice(0, 3).map((specialty) => (
-                            <span
-                              key={specialty}
-                              className="bg-green-100 text-green-800 text-xs px-2 py-1 rounded"
-                            >
-                              {specialty}
-                            </span>
-                          ))}
-                        </div>
+                        <p className="text-green-800 text-sm">
+                          {teacher.specialization}
+                        </p>
                       </div>
                     )}
 
-                    {teacher.bio && (
+                    {teacher.biography && (
                       <p className="text-gray-600 text-sm line-clamp-2">
-                        {teacher.bio}
+                        {teacher.biography}
                       </p>
                     )}
 

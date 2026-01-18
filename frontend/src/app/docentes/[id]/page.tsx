@@ -33,10 +33,10 @@ export default async function TeacherDetailPage({ params }: PageProps) {
               Docentes
             </Link>
             <span className="mx-2">→</span>
-            <span>{teacher.name}</span>
+            <span>{teacher.firstName} {teacher.lastName}</span>
           </nav>
-          <h1 className="text-4xl font-bold mb-2">{teacher.name}</h1>
-          <p className="text-xl text-blue-100">{teacher.position}</p>
+          <h1 className="text-4xl font-bold mb-2">{teacher.firstName} {teacher.lastName}</h1>
+          <p className="text-xl text-blue-100">{teacher.degree || teacher.category}</p>
         </div>
       </section>
 
@@ -51,7 +51,7 @@ export default async function TeacherDetailPage({ params }: PageProps) {
                   {teacher.imageUrl ? (
                     <img
                       src={teacher.imageUrl}
-                      alt={teacher.name}
+                      alt={`${teacher.firstName} ${teacher.lastName}`}
                       className="w-full h-full object-cover"
                     />
                   ) : (
@@ -78,10 +78,10 @@ export default async function TeacherDetailPage({ params }: PageProps) {
                       <span>{teacher.phone}</span>
                     </li>
                   )}
-                  {teacher.office && (
+                  {teacher.officeHours && (
                     <li className="flex items-center gap-2">
-                      <span>🏢</span>
-                      <span>{teacher.office}</span>
+                      <span>🕐</span>
+                      <span>{teacher.officeHours}</span>
                     </li>
                   )}
                 </ul>
@@ -90,61 +90,50 @@ export default async function TeacherDetailPage({ params }: PageProps) {
 
             {/* Main Content */}
             <div className="md:col-span-2">
-              {teacher.bio && (
+              {teacher.biography && (
                 <>
                   <h2 className="text-2xl font-bold mb-4 text-gray-800">
                     Biografía
                   </h2>
                   <p className="text-gray-600 mb-8 leading-relaxed">
-                    {teacher.bio}
+                    {teacher.biography}
                   </p>
                 </>
               )}
 
-              {teacher.specialties && teacher.specialties.length > 0 && (
+              {teacher.specialization && (
                 <>
                   <h2 className="text-2xl font-bold mb-4 text-gray-800">
-                    Áreas de Especialización
+                    Área de Especialización
                   </h2>
-                  <div className="flex flex-wrap gap-2 mb-8">
-                    {teacher.specialties.map((specialty) => (
-                      <span
-                        key={specialty}
-                        className="bg-blue-100 text-blue-800 px-4 py-2 rounded-full"
-                      >
-                        {specialty}
-                      </span>
-                    ))}
-                  </div>
+                  <p className="text-gray-600 mb-8">
+                    {teacher.specialization}
+                  </p>
                 </>
               )}
 
-              {teacher.education && teacher.education.length > 0 && (
+              {teacher.degree && (
                 <>
                   <h2 className="text-2xl font-bold mb-4 text-gray-800">
                     Formación Académica
                   </h2>
-                  <ul className="space-y-3 mb-8">
-                    {teacher.education.map((edu, index) => (
-                      <li key={index} className="flex items-start gap-3">
-                        <span className="text-blue-600">🎓</span>
-                        <span className="text-gray-600">{edu}</span>
-                      </li>
-                    ))}
-                  </ul>
+                  <div className="flex items-start gap-3 mb-8">
+                    <span className="text-blue-600">🎓</span>
+                    <span className="text-gray-600">{teacher.degree}</span>
+                  </div>
                 </>
               )}
 
-              {teacher.publications && teacher.publications.length > 0 && (
+              {teacher.courses && teacher.courses.length > 0 && (
                 <>
                   <h2 className="text-2xl font-bold mb-4 text-gray-800">
-                    Publicaciones
+                    Cursos que Dicta
                   </h2>
                   <ul className="space-y-3">
-                    {teacher.publications.map((pub, index) => (
+                    {teacher.courses.map((course, index) => (
                       <li key={index} className="flex items-start gap-3">
-                        <span className="text-blue-600">📄</span>
-                        <span className="text-gray-600">{pub}</span>
+                        <span className="text-blue-600">📚</span>
+                        <span className="text-gray-600">{course}</span>
                       </li>
                     ))}
                   </ul>
