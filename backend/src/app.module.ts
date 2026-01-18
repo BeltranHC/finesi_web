@@ -7,6 +7,8 @@ import { UsersModule } from './users/users.module';
 import { NewsModule } from './news/news.module';
 import { CareersModule } from './careers/careers.module';
 import { TeachersModule } from './teachers/teachers.module';
+import { AuthModule } from './auth/auth.module';
+import { HealthModule } from './health/health.module';
 
 @Module({
   imports: [
@@ -27,9 +29,12 @@ import { TeachersModule } from './teachers/teachers.module';
         database: configService.get<string>('DATABASE_NAME', 'finesi_db'),
         entities: [__dirname + '/**/*.entity{.ts,.js}'],
         synchronize: configService.get<string>('NODE_ENV') === 'development',
+        logging: configService.get<string>('NODE_ENV') === 'development',
       }),
       inject: [ConfigService],
     }),
+    AuthModule,
+    HealthModule,
     UsersModule,
     NewsModule,
     CareersModule,

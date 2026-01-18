@@ -4,29 +4,64 @@ services:
   postgres:
     image: postgres:15-alpine
     container_name: finesi_db
+    restart: unless-stopped
     environment:
-      POSTGRES_USER: finesi_user
-      POSTGRES_PASSWORD: finesi_password
-      POSTGRES_DB: finesi_db
+      POSTGRES_USER: ${DATABASE_USER:-finesi_user}
+      POSTGRES_PASSWORD: ${DATABASE_PASSWORD:-finesi_password}
+      POSTGRES_DB: ${DATABASE_NAME:-finesi_db}
     ports:
-      - '5433:5432'
+      - '${DATABASE_PORT:-5433}:5432'
     volumes:
       - postgres_data:/var/lib/postgresql/data
     networks:
       - finesi_network
+    healthcheck:
+      test: ['CMD-SHELL', 'pg_isready -U finesi_user -d finesi_db']
+      interval: 10s
+      timeout: 5s
+      retries: 5
 
   pgadmin:
     image: dpage/pgadmin4:latest
     container_name: finesi_pgadmin
+    restart: unless-stopped
     environment:
-      PGADMIN_DEFAULT_EMAIL: admin@finesi.edu.pe
-      PGADMIN_DEFAULT_PASSWORD: admin123
+      PGADMIN_DEFAULT_EMAIL: ${PGADMIN_EMAIL:-admin@finesi.edu.pe}
+      PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_PASSWORD:-admin123}
     ports:
       - '5050:80'
     depends_on:
-      - postgres
+      postgres:
+        condition: service_healthy
     networks:
       - finesi_network
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: finesi_backend
+    restart: unless-stopped
+    environment:
+      DATABASE_HOST: postgres
+      DATABASE_PORT: 5432
+      DATABASE_USER: ${DATABASE_USER:-finesi_user}
+      DATABASE_PASSWORD: ${DATABASE_PASSWORD:-finesi_password}
+      DATABASE_NAME: ${DATABASE_NAME:-finesi_db}
+      JWT_SECRET: ${JWT_SECRET:-finesi_super_secret_key_2024}
+      JWT_EXPIRATION: ${JWT_EXPIRATION:-1d}
+      PORT: 3001
+      NODE_ENV: ${NODE_ENV:-development}
+    ports:
+      - '3001:3001'
+    depends_on:
+      postgres:
+        condition: service_healthy
+    networks:
+      - finesi_network
+    volumes:
+      - ./backend:/app
+      - /app/node_modules
 
 volumes:
   postgres_data:

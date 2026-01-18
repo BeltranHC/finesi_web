@@ -1,35 +1,60 @@
 # FINESI Web - Facultad de Ingeniería Estadística e Informática
 
-Este es un proyecto web para la Facultad de Ingeniería Estadística e Informática (FINESI).
+Sistema web para la Facultad de Ingeniería Estadística e Informática (FINESI).
 
-## Tecnologías
+## 🚀 Tecnologías
 
-- **Frontend**: Next.js 15 con TypeScript y Tailwind CSS
-- **Backend**: NestJS con TypeORM
-- **Base de Datos**: PostgreSQL 15
+| Componente | Tecnología |
+|------------|------------|
+| **Frontend** | Next.js 16 + React 19 + TypeScript + Tailwind CSS 4 |
+| **Backend** | NestJS 11 + TypeORM + PostgreSQL |
+| **Base de Datos** | PostgreSQL 15 |
+| **Documentación API** | Swagger/OpenAPI |
+| **Autenticación** | JWT + Passport |
+| **Containerización** | Docker + Docker Compose |
 
-## Estructura del Proyecto
+## 📁 Estructura del Proyecto
 
 ```text
 finesi_web/
-├── frontend/          # Aplicación Next.js
-├── backend/           # API NestJS
-├── docker-compose.yml # Configuración de Docker
+├── frontend/              # Aplicación Next.js
+│   ├── src/
+│   │   ├── app/          # App Router (páginas)
+│   │   └── components/   # Componentes reutilizables
+│   └── public/           # Assets estáticos
+├── backend/              # API NestJS
+│   ├── src/
+│   │   ├── auth/         # Módulo de autenticación
+│   │   ├── users/        # Módulo de usuarios
+│   │   ├── news/         # Módulo de noticias
+│   │   ├── careers/      # Módulo de carreras
+│   │   ├── teachers/     # Módulo de docentes
+│   │   ├── health/       # Health checks
+│   │   └── common/       # Utilidades compartidas
+│   └── test/             # Tests E2E
+├── docker-compose.yml    # Configuración de Docker
 └── README.md
 ```
 
-## Requisitos Previos
+## ⚙️ Requisitos Previos
 
-- Node.js 18+
+- Node.js 20+
 - Docker y Docker Compose
 - npm o yarn
 
-## Configuración Inicial
+## 🛠️ Configuración Inicial
 
-### 1. Iniciar la Base de Datos
+### 1. Clonar el repositorio
 
 ```bash
-docker-compose up -d
+git clone https://github.com/BeltranHC/finesi_web.git
+cd finesi_web
+```
+
+### 2. Iniciar la Base de Datos
+
+```bash
+docker-compose up -d postgres pgadmin
 ```
 
 Esto iniciará:
@@ -37,7 +62,7 @@ Esto iniciará:
 - PostgreSQL en el puerto 5433
 - pgAdmin en el puerto 5050: <http://localhost:5050>
 
-### 2. Configurar el Backend
+### 3. Configurar el Backend
 
 ```bash
 cd backend
@@ -47,21 +72,25 @@ npm run start:dev
 ```
 
 El backend estará disponible en: <http://localhost:3001>
+Documentación API (Swagger): <http://localhost:3001/api/docs>
 
-### 3. Configurar el Frontend
+### 4. Configurar el Frontend
 
 ```bash
 cd frontend
+cp .env.example .env.local
 npm install
 npm run dev
 ```
 
 El frontend estará disponible en: <http://localhost:3000>
 
-## Credenciales por Defecto
+## 🔐 Credenciales por Defecto
 
 ### PostgreSQL
 
+- **Host**: localhost
+- **Puerto**: 5433
 - **Usuario**: finesi_user
 - **Contraseña**: finesi_password
 - **Base de datos**: finesi_db
@@ -71,7 +100,24 @@ El frontend estará disponible en: <http://localhost:3000>
 - **Email**: `admin@finesi.edu.pe`
 - **Contraseña**: admin123
 
-## Scripts Disponibles
+## 📚 API Endpoints
+
+### Autenticación
+- `POST /api/auth/register` - Registrar usuario
+- `POST /api/auth/login` - Iniciar sesión
+
+### Health Check
+- `GET /api/health` - Estado del sistema
+- `GET /api/health/ready` - Readiness check
+- `GET /api/health/live` - Liveness check
+
+### Recursos (CRUD completo)
+- `/api/users` - Gestión de usuarios
+- `/api/news` - Gestión de noticias
+- `/api/careers` - Gestión de carreras
+- `/api/teachers` - Gestión de docentes
+
+## 📜 Scripts Disponibles
 
 ### Frontend
 
