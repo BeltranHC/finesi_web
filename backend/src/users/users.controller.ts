@@ -7,20 +7,27 @@ import {
   Param,
   Delete,
   ParseUUIDPipe,
+  UseGuards,
 } from '@nestjs/common';
 import { ApiTags, ApiOperation, ApiResponse, ApiBearerAuth } from '@nestjs/swagger';
 import { UsersService } from './users.service';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
+import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
+import { RolesGuard } from '../auth/guards/roles.guard';
+import { Roles } from '../auth/decorators/roles.decorator';
+import { UserRole } from './entities/user.entity';
 
 @ApiTags('users')
 @ApiBearerAuth()
 @Controller('users')
+@UseGuards(JwtAuthGuard, RolesGuard)
 export class UsersController {
   constructor(private readonly usersService: UsersService) {}
 
   @Post()
-  @ApiOperation({ summary: 'Crear nuevo usuario' })
+  @Roles(UserRole.ADMIN)
+  @ApiOperation({ summary: 'Crear nuevo usuario (Solo Admin)' })
   @ApiResponse({ status: 201, description: 'Usuario creado exitosamente' })
   create(@Body() createUserDto: CreateUserDto) {
     return this.usersService.create(createUserDto);
