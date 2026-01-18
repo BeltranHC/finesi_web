@@ -7,7 +7,7 @@ import { JwtService } from '@nestjs/jwt';
 import { UsersService } from '../users/users.service';
 import { LoginDto } from './dto/login.dto';
 import { RegisterDto } from './dto/register.dto';
-import * as bcrypt from 'bcrypt';
+import { hash, compare } from 'bcrypt';
 
 @Injectable()
 export class AuthService {
@@ -22,13 +22,14 @@ export class AuthService {
       throw new ConflictException('El email ya está registrado');
     }
 
-    const hashedPassword = await bcrypt.hash(registerDto.password, 10);
+    const hashedPassword = await hash(registerDto.password, 10);
     const user = await this.usersService.create({
       ...registerDto,
       password: hashedPassword,
     });
 
-    const { password, ...result } = user;
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    const { password: _, ...result } = user;
     return {
       user: result,
       message: 'Usuario registrado exitosamente',
@@ -41,10 +42,7 @@ export class AuthService {
       throw new UnauthorizedException('Credenciales inválidas');
     }
 
-    const isPasswordValid = await bcrypt.compare(
-      loginDto.password,
-      user.password,
-    );
+    const isPasswordValid = await compare(loginDto.password, user.password);
     if (!isPasswordValid) {
       throw new UnauthorizedException('Credenciales inválidas');
     }
@@ -59,10 +57,11 @@ export class AuthService {
       role: user.role,
     };
 
-    const { password, ...result } = user;
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    const { password: _, ...result } = user;
     return {
       user: result,
-      access_token: this.jwtService.sign(payload),
+      accessToken: this.jwtService.sign(payload),
     };
   }
 
