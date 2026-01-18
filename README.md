@@ -4,14 +4,14 @@ Sistema web para la Facultad de Ingeniería Estadística e Informática (FINESI)
 
 ## 🚀 Tecnologías
 
-| Componente | Tecnología |
-|------------|------------|
-| **Frontend** | Next.js 16 + React 19 + TypeScript + Tailwind CSS 4 |
-| **Backend** | NestJS 11 + TypeORM + PostgreSQL |
-| **Base de Datos** | PostgreSQL 15 |
-| **Documentación API** | Swagger/OpenAPI |
-| **Autenticación** | JWT + Passport |
-| **Containerización** | Docker + Docker Compose |
+| Componente           | Tecnología                                       |
+| -------------------- | ------------------------------------------------ |
+| **Frontend**         | Next.js 16 + React 19 + TypeScript + Tailwind 4  |
+| **Backend**          | NestJS 11 + TypeORM + PostgreSQL                 |
+| **Base de Datos**    | PostgreSQL 15                                    |
+| **Documentación**    | Swagger/OpenAPI                                  |
+| **Autenticación**    | JWT + Passport                                   |
+| **Containerización** | Docker + Docker Compose                          |
 
 ## 📁 Estructura del Proyecto
 
@@ -103,15 +103,18 @@ El frontend estará disponible en: <http://localhost:3000>
 ## 📚 API Endpoints
 
 ### Autenticación
+
 - `POST /api/auth/register` - Registrar usuario
 - `POST /api/auth/login` - Iniciar sesión
 
 ### Health Check
+
 - `GET /api/health` - Estado del sistema
 - `GET /api/health/ready` - Readiness check
 - `GET /api/health/live` - Liveness check
 
 ### Recursos (CRUD completo)
+
 - `/api/users` - Gestión de usuarios
 - `/api/news` - Gestión de noticias
 - `/api/careers` - Gestión de carreras
@@ -131,6 +134,6 @@ El frontend estará disponible en: <http://localhost:3000>
 - `npm run build` - Compila la aplicación
 - `npm run start:prod` - Inicia en modo producción
 
-## Licencia
+## 📄 Licencia
 
 Este proyecto es propiedad de la Facultad de Ingeniería Estadística e Informática.
