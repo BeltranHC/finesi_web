@@ -48,7 +48,6 @@ export default async function NewsDetailPage({ params }: PageProps) {
             <span>
               📅 {formatDate(newsItem.publishedAt || newsItem.createdAt)}
             </span>
-            {newsItem.author && <span>✍️ {newsItem.author}</span>}
             {newsItem.category && (
               <span className="bg-blue-800 px-3 py-1 rounded-full text-sm">
                 {newsItem.category}
@@ -82,25 +81,6 @@ export default async function NewsDetailPage({ params }: PageProps) {
                 </p>
               )}
             </article>
-
-            {/* Tags */}
-            {newsItem.tags && newsItem.tags.length > 0 && (
-              <div className="mt-8 pt-8 border-t">
-                <h3 className="text-sm font-semibold text-gray-700 mb-3">
-                  Etiquetas:
-                </h3>
-                <div className="flex flex-wrap gap-2">
-                  {newsItem.tags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="bg-gray-100 text-gray-600 px-3 py-1 rounded-full text-sm"
-                    >
-                      #{tag}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            )}
 
             {/* Navigation */}
             <div className="mt-12 pt-8 border-t">
