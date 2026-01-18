@@ -1,11 +1,15 @@
 import { Controller, Get } from '@nestjs/common';
+import { ApiTags, ApiOperation, ApiResponse } from '@nestjs/swagger';
 import { ConfigService } from '@nestjs/config';
 
+@ApiTags('health')
 @Controller('health')
 export class HealthController {
   constructor(private configService: ConfigService) {}
 
   @Get()
+  @ApiOperation({ summary: 'Verificar estado del sistema' })
+  @ApiResponse({ status: 200, description: 'Sistema funcionando correctamente' })
   check() {
     return {
       status: 'ok',
@@ -17,6 +21,8 @@ export class HealthController {
   }
 
   @Get('ready')
+  @ApiOperation({ summary: 'Readiness probe para Kubernetes' })
+  @ApiResponse({ status: 200, description: 'Servicio listo' })
   ready() {
     return {
       status: 'ready',
@@ -25,6 +31,8 @@ export class HealthController {
   }
 
   @Get('live')
+  @ApiOperation({ summary: 'Liveness probe para Kubernetes' })
+  @ApiResponse({ status: 200, description: 'Servicio activo' })
   live() {
     return {
       status: 'live',
