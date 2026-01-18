@@ -32,20 +32,20 @@ export class CareersController {
     return this.careersService.findAll();
   }
 
-  @Get(':id')
-  @ApiOperation({ summary: 'Obtener carrera por ID' })
-  @ApiResponse({ status: 200, description: 'Carrera encontrada' })
-  @ApiResponse({ status: 404, description: 'Carrera no encontrada' })
-  findOne(@Param('id', ParseUUIDPipe) id: string) {
-    return this.careersService.findOne(id);
-  }
-
   @Get('slug/:slug')
   @ApiOperation({ summary: 'Obtener carrera por slug' })
   @ApiResponse({ status: 200, description: 'Carrera encontrada' })
   @ApiResponse({ status: 404, description: 'Carrera no encontrada' })
   findBySlug(@Param('slug') slug: string) {
     return this.careersService.findBySlug(slug);
+  }
+
+  @Get(':id')
+  @ApiOperation({ summary: 'Obtener carrera por ID' })
+  @ApiResponse({ status: 200, description: 'Carrera encontrada' })
+  @ApiResponse({ status: 404, description: 'Carrera no encontrada' })
+  findOne(@Param('id', ParseUUIDPipe) id: string) {
+    return this.careersService.findOne(id);
   }
 
   @Patch(':id')
