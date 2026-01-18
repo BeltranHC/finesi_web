@@ -1,31 +1,31 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { getRepositoryToken } from '@nestjs/typeorm';
-import { Repository } from 'typeorm';
 import { NotFoundException } from '@nestjs/common';
 import { TeachersService } from './teachers.service';
-import { Teacher } from './entities/teacher.entity';
+import { Teacher, TeacherCategory } from './entities/teacher.entity';
 import { CreateTeacherDto } from './dto/create-teacher.dto';
+import { Career } from '../careers/entities/career.entity';
 
 describe('TeachersService', () => {
   let service: TeachersService;
-  let repository: Repository<Teacher>;
 
   const mockTeacher: Teacher = {
     id: '123e4567-e89b-12d3-a456-426614174001',
-    name: 'Dr. Juan Pérez',
+    firstName: 'Juan',
+    lastName: 'Pérez',
     email: 'juan.perez@unap.edu.pe',
-    position: 'Profesor Principal',
-    bio: 'Experto en estadística',
+    category: TeacherCategory.PRINCIPAL,
     phone: '999888777',
-    office: 'Oficina 101',
-    imageUrl: null,
-    specialties: ['Estadística', 'Machine Learning'],
-    education: ['PhD en Estadística'],
-    publications: ['Paper 1'],
+    imageUrl: '',
+    degree: 'Doctor',
+    specialization: 'Estadística',
+    biography: 'Experto en estadística',
+    courses: ['Estadística I', 'Machine Learning'],
+    officeHours: 'Lunes a Viernes 9-11',
+    career: null as unknown as Career,
     isActive: true,
     createdAt: new Date(),
     updatedAt: new Date(),
-    career: null,
   };
 
   const mockRepository = {
@@ -48,7 +48,6 @@ describe('TeachersService', () => {
     }).compile();
 
     service = module.get<TeachersService>(TeachersService);
-    repository = module.get<Repository<Teacher>>(getRepositoryToken(Teacher));
   });
 
   afterEach(() => {
@@ -62,9 +61,9 @@ describe('TeachersService', () => {
   describe('create', () => {
     it('should create a new teacher', async () => {
       const createDto: CreateTeacherDto = {
-        name: 'Dr. Juan Pérez',
+        firstName: 'Juan',
+        lastName: 'Pérez',
         email: 'juan.perez@unap.edu.pe',
-        position: 'Profesor Principal',
       };
 
       mockRepository.create.mockReturnValue(mockTeacher);
@@ -88,7 +87,7 @@ describe('TeachersService', () => {
       expect(mockRepository.find).toHaveBeenCalledWith({
         where: { isActive: true },
         relations: ['career'],
-        order: { name: 'ASC' },
+        order: { lastName: 'ASC' },
       });
       expect(result).toEqual(teachers);
     });
@@ -118,7 +117,7 @@ describe('TeachersService', () => {
 
   describe('update', () => {
     it('should update a teacher', async () => {
-      const updateDto = { name: 'Updated Name' };
+      const updateDto = { firstName: 'Updated' };
       const updatedTeacher = { ...mockTeacher, ...updateDto };
 
       mockRepository.findOne.mockResolvedValue(mockTeacher);
@@ -126,7 +125,7 @@ describe('TeachersService', () => {
 
       const result = await service.update(mockTeacher.id, updateDto);
 
-      expect(result.name).toBe('Updated Name');
+      expect(result.firstName).toBe('Updated');
     });
   });
 

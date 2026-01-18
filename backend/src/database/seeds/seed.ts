@@ -1,8 +1,8 @@
 import { DataSource } from 'typeorm';
 import { hash } from 'bcrypt';
-import { User, UserRole } from '../users/entities/user.entity';
-import { Career } from '../careers/entities/career.entity';
-import { News, NewsCategory } from '../news/entities/news.entity';
+import { User, UserRole } from '../../users/entities/user.entity';
+import { Career } from '../../careers/entities/career.entity';
+import { News, NewsCategory } from '../../news/entities/news.entity';
 
 export async function seedDatabase(dataSource: DataSource): Promise<void> {
   const userRepository = dataSource.getRepository(User);
@@ -93,7 +93,14 @@ export async function seedDatabase(dataSource: DataSource): Promise<void> {
   console.log('Careers created');
 
   // Create sample news
-  const newsData = [
+  const newsItems: Array<{
+    title: string;
+    content: string;
+    excerpt: string;
+    category: NewsCategory;
+    isPublished: boolean;
+    publishedAt: Date;
+  }> = [
     {
       title: 'Conferencia Internacional de Ciencia de Datos 2026',
       content:
@@ -126,8 +133,8 @@ export async function seedDatabase(dataSource: DataSource): Promise<void> {
     },
   ];
 
-  for (const news of newsData) {
-    const newsEntity = newsRepository.create(news);
+  for (const newsItem of newsItems) {
+    const newsEntity = newsRepository.create(newsItem);
     await newsRepository.save(newsEntity);
   }
   console.log('News created');

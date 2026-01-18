@@ -1,25 +1,22 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { getRepositoryToken } from '@nestjs/typeorm';
-import { Repository } from 'typeorm';
 import { NotFoundException } from '@nestjs/common';
 import { NewsService } from './news.service';
-import { News } from './entities/news.entity';
+import { News, NewsCategory } from './entities/news.entity';
+import { User } from '../users/entities/user.entity';
 import { CreateNewsDto } from './dto/create-news.dto';
 
 describe('NewsService', () => {
   let service: NewsService;
-  let repository: Repository<News>;
 
   const mockNews: News = {
     id: '123e4567-e89b-12d3-a456-426614174002',
     title: 'Nueva noticia importante',
-    slug: 'nueva-noticia-importante',
     content: 'Contenido de la noticia',
     excerpt: 'Resumen de la noticia',
-    imageUrl: null,
-    author: 'Admin',
-    category: 'Académico',
-    tags: ['importante', 'evento'],
+    imageUrl: '',
+    author: null as unknown as User,
+    category: NewsCategory.ACADEMIC,
     publishedAt: new Date(),
     isPublished: true,
     createdAt: new Date(),
@@ -46,7 +43,6 @@ describe('NewsService', () => {
     }).compile();
 
     service = module.get<NewsService>(NewsService);
-    repository = module.get<Repository<News>>(getRepositoryToken(News));
   });
 
   afterEach(() => {

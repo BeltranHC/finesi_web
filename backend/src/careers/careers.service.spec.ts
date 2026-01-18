@@ -1,6 +1,5 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { getRepositoryToken } from '@nestjs/typeorm';
-import { Repository } from 'typeorm';
 import { NotFoundException } from '@nestjs/common';
 import { CareersService } from './careers.service';
 import { Career } from './entities/career.entity';
@@ -8,7 +7,6 @@ import { CreateCareerDto } from './dto/create-career.dto';
 
 describe('CareersService', () => {
   let service: CareersService;
-  let repository: Repository<Career>;
 
   const mockCareer: Career = {
     id: '123e4567-e89b-12d3-a456-426614174000',
@@ -20,9 +18,9 @@ describe('CareersService', () => {
     curriculum: 'Plan de estudios',
     skills: ['Programación', 'Base de datos'],
     isActive: true,
+    imageUrl: '',
     createdAt: new Date(),
     updatedAt: new Date(),
-    teachers: [],
   };
 
   const mockRepository = {
@@ -45,7 +43,6 @@ describe('CareersService', () => {
     }).compile();
 
     service = module.get<CareersService>(CareersService);
-    repository = module.get<Repository<Career>>(getRepositoryToken(Career));
   });
 
   afterEach(() => {

@@ -9,7 +9,10 @@ export class HealthController {
 
   @Get()
   @ApiOperation({ summary: 'Verificar estado del sistema' })
-  @ApiResponse({ status: 200, description: 'Sistema funcionando correctamente' })
+  @ApiResponse({
+    status: 200,
+    description: 'Sistema funcionando correctamente',
+  })
   check() {
     return {
       status: 'ok',

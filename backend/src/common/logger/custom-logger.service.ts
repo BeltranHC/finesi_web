@@ -1,18 +1,30 @@
-import { Injectable, LoggerService, LogLevel } from '@nestjs/common';
+import { Injectable, LoggerService } from '@nestjs/common';
 
 @Injectable()
 export class CustomLogger implements LoggerService {
   private context?: string;
-  private readonly logLevels: LogLevel[] = ['error', 'warn', 'log', 'debug', 'verbose'];
 
   setContext(context: string) {
     this.context = context;
   }
 
-  private formatMessage(level: string, message: unknown, context?: string): string {
+  private formatMessage(
+    level: string,
+    message: unknown,
+    context?: string,
+  ): string {
     const timestamp = new Date().toISOString();
     const ctx = context || this.context || 'Application';
-    const msg = typeof message === 'object' ? JSON.stringify(message) : message;
+    let msg: string;
+    if (message === null || message === undefined) {
+      msg = '';
+    } else if (typeof message === 'string') {
+      msg = message;
+    } else if (typeof message === 'number' || typeof message === 'boolean') {
+      msg = String(message);
+    } else {
+      msg = JSON.stringify(message);
+    }
     return `[${timestamp}] [${level.toUpperCase().padEnd(7)}] [${ctx}] ${msg}`;
   }
 
