@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { MapPin, Phone, Mail, Clock, Facebook, Twitter, Youtube, Instagram, Send, Map, CheckCircle, AlertCircle } from "lucide-react";
 
 interface ContactFormData {
   name: string;
@@ -58,10 +59,16 @@ export default function ContactPage() {
   return (
     <div>
       {/* Hero Section */}
-      <section className="bg-linear-to-r from-blue-900 to-blue-700 text-white py-16">
-        <div className="container mx-auto px-4">
-          <h1 className="text-4xl font-bold mb-4">Contáctanos</h1>
-          <p className="text-xl text-blue-100 max-w-2xl">
+      <section className="relative bg-gradient-to-br from-primary-900 via-primary-800 to-primary-950 text-white py-20 overflow-hidden">
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute top-10 right-20 w-64 h-64 bg-accent-500 rounded-full blur-3xl"></div>
+        </div>
+        <div className="container mx-auto px-4 relative z-10">
+          <span className="inline-block bg-accent-500/20 text-accent-300 px-4 py-2 rounded-full text-sm font-medium mb-6 border border-accent-500/30">
+            Comunícate con nosotros
+          </span>
+          <h1 className="text-4xl md:text-5xl font-bold mb-6">Contáctanos</h1>
+          <p className="text-xl text-primary-200 max-w-2xl leading-relaxed">
             ¿Tienes alguna pregunta? Estamos aquí para ayudarte. Completa el
             formulario o visítanos en nuestras oficinas.
           </p>
@@ -69,26 +76,26 @@ export default function ContactPage() {
       </section>
 
       {/* Content */}
-      <section className="py-16">
+      <section className="py-20">
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-3 gap-12">
             {/* Contact Form */}
             <div className="md:col-span-2">
-              <h2 className="text-2xl font-bold mb-6 text-gray-800">
+              <h2 className="text-2xl font-bold mb-8 text-neutral-800">
                 Envíanos un mensaje
               </h2>
 
               {submitStatus === "success" && (
-                <div className="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded mb-6">
-                  ¡Mensaje enviado exitosamente! Nos pondremos en contacto
-                  pronto.
+                <div className="flex items-center gap-3 bg-accent-50 border border-accent-200 text-accent-800 px-6 py-4 rounded-xl mb-8">
+                  <CheckCircle className="w-5 h-5 text-accent-600 shrink-0" />
+                  <span>¡Mensaje enviado exitosamente! Nos pondremos en contacto pronto.</span>
                 </div>
               )}
 
               {submitStatus === "error" && (
-                <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-6">
-                  Hubo un error al enviar el mensaje. Por favor, intenta de
-                  nuevo.
+                <div className="flex items-center gap-3 bg-red-50 border border-red-200 text-red-800 px-6 py-4 rounded-xl mb-8">
+                  <AlertCircle className="w-5 h-5 text-red-600 shrink-0" />
+                  <span>Hubo un error al enviar el mensaje. Por favor, intenta de nuevo.</span>
                 </div>
               )}
 
@@ -97,7 +104,7 @@ export default function ContactPage() {
                   <div>
                     <label
                       htmlFor="name"
-                      className="block text-sm font-medium text-gray-700 mb-2"
+                      className="block text-sm font-medium text-neutral-700 mb-2"
                     >
                       Nombre completo *
                     </label>
@@ -108,14 +115,14 @@ export default function ContactPage() {
                       value={formData.name}
                       onChange={handleChange}
                       required
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                      className="w-full px-4 py-3 border border-neutral-200 rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-transparent transition bg-neutral-50 focus:bg-white"
                       placeholder="Tu nombre"
                     />
                   </div>
                   <div>
                     <label
                       htmlFor="email"
-                      className="block text-sm font-medium text-gray-700 mb-2"
+                      className="block text-sm font-medium text-neutral-700 mb-2"
                     >
                       Correo electrónico *
                     </label>
@@ -126,7 +133,7 @@ export default function ContactPage() {
                       value={formData.email}
                       onChange={handleChange}
                       required
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                      className="w-full px-4 py-3 border border-neutral-200 rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-transparent transition bg-neutral-50 focus:bg-white"
                       placeholder="tu@email.com"
                     />
                   </div>
@@ -136,7 +143,7 @@ export default function ContactPage() {
                   <div>
                     <label
                       htmlFor="phone"
-                      className="block text-sm font-medium text-gray-700 mb-2"
+                      className="block text-sm font-medium text-neutral-700 mb-2"
                     >
                       Teléfono
                     </label>
@@ -146,14 +153,14 @@ export default function ContactPage() {
                       name="phone"
                       value={formData.phone}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                      className="w-full px-4 py-3 border border-neutral-200 rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-transparent transition bg-neutral-50 focus:bg-white"
                       placeholder="+51 999 999 999"
                     />
                   </div>
                   <div>
                     <label
                       htmlFor="subject"
-                      className="block text-sm font-medium text-gray-700 mb-2"
+                      className="block text-sm font-medium text-neutral-700 mb-2"
                     >
                       Asunto *
                     </label>
@@ -163,7 +170,7 @@ export default function ContactPage() {
                       value={formData.subject}
                       onChange={handleChange}
                       required
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                      className="w-full px-4 py-3 border border-neutral-200 rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-transparent transition bg-neutral-50 focus:bg-white"
                     >
                       <option value="">Selecciona un asunto</option>
                       <option value="admision">Proceso de Admisión</option>
@@ -178,7 +185,7 @@ export default function ContactPage() {
                 <div>
                   <label
                     htmlFor="message"
-                    className="block text-sm font-medium text-gray-700 mb-2"
+                    className="block text-sm font-medium text-neutral-700 mb-2"
                   >
                     Mensaje *
                   </label>
@@ -189,7 +196,7 @@ export default function ContactPage() {
                     onChange={handleChange}
                     required
                     rows={6}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-none"
+                    className="w-full px-4 py-3 border border-neutral-200 rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-transparent resize-none transition bg-neutral-50 focus:bg-white"
                     placeholder="Escribe tu mensaje aquí..."
                   />
                 </div>
@@ -197,8 +204,9 @@ export default function ContactPage() {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full md:w-auto bg-blue-900 text-white px-8 py-4 rounded-lg font-bold hover:bg-blue-800 transition disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="inline-flex items-center gap-3 bg-primary-900 hover:bg-primary-800 text-white px-8 py-4 rounded-xl font-bold transition-all shadow-lg shadow-primary-900/20 disabled:opacity-50 disabled:cursor-not-allowed"
                 >
+                  <Send className="w-5 h-5" />
                   {isSubmitting ? "Enviando..." : "Enviar mensaje"}
                 </button>
               </form>
@@ -206,16 +214,18 @@ export default function ContactPage() {
 
             {/* Contact Info */}
             <div>
-              <h2 className="text-2xl font-bold mb-6 text-gray-800">
+              <h2 className="text-2xl font-bold mb-8 text-neutral-800">
                 Información de contacto
               </h2>
 
               <div className="space-y-6">
-                <div className="flex items-start gap-4">
-                  <span className="text-2xl">📍</span>
+                <div className="flex items-start gap-4 p-4 bg-neutral-50 rounded-xl">
+                  <div className="w-12 h-12 bg-primary-100 rounded-xl flex items-center justify-center shrink-0">
+                    <MapPin className="w-6 h-6 text-primary-700" />
+                  </div>
                   <div>
-                    <h3 className="font-semibold text-gray-800">Dirección</h3>
-                    <p className="text-gray-600">
+                    <h3 className="font-semibold text-neutral-800 mb-1">Dirección</h3>
+                    <p className="text-neutral-600 text-sm leading-relaxed">
                       Ciudad Universitaria
                       <br />
                       Av. Floral 500
@@ -225,11 +235,13 @@ export default function ContactPage() {
                   </div>
                 </div>
 
-                <div className="flex items-start gap-4">
-                  <span className="text-2xl">📞</span>
+                <div className="flex items-start gap-4 p-4 bg-neutral-50 rounded-xl">
+                  <div className="w-12 h-12 bg-primary-100 rounded-xl flex items-center justify-center shrink-0">
+                    <Phone className="w-6 h-6 text-primary-700" />
+                  </div>
                   <div>
-                    <h3 className="font-semibold text-gray-800">Teléfono</h3>
-                    <p className="text-gray-600">
+                    <h3 className="font-semibold text-neutral-800 mb-1">Teléfono</h3>
+                    <p className="text-neutral-600 text-sm">
                       +51 (51) 123-456
                       <br />
                       +51 (51) 123-457
@@ -237,13 +249,15 @@ export default function ContactPage() {
                   </div>
                 </div>
 
-                <div className="flex items-start gap-4">
-                  <span className="text-2xl">📧</span>
+                <div className="flex items-start gap-4 p-4 bg-neutral-50 rounded-xl">
+                  <div className="w-12 h-12 bg-primary-100 rounded-xl flex items-center justify-center shrink-0">
+                    <Mail className="w-6 h-6 text-primary-700" />
+                  </div>
                   <div>
-                    <h3 className="font-semibold text-gray-800">
+                    <h3 className="font-semibold text-neutral-800 mb-1">
                       Correo electrónico
                     </h3>
-                    <p className="text-gray-600">
+                    <p className="text-neutral-600 text-sm">
                       finesi@unap.edu.pe
                       <br />
                       secretaria.finesi@unap.edu.pe
@@ -251,13 +265,15 @@ export default function ContactPage() {
                   </div>
                 </div>
 
-                <div className="flex items-start gap-4">
-                  <span className="text-2xl">🕐</span>
+                <div className="flex items-start gap-4 p-4 bg-neutral-50 rounded-xl">
+                  <div className="w-12 h-12 bg-primary-100 rounded-xl flex items-center justify-center shrink-0">
+                    <Clock className="w-6 h-6 text-primary-700" />
+                  </div>
                   <div>
-                    <h3 className="font-semibold text-gray-800">
+                    <h3 className="font-semibold text-neutral-800 mb-1">
                       Horario de atención
                     </h3>
-                    <p className="text-gray-600">
+                    <p className="text-neutral-600 text-sm">
                       Lunes a Viernes
                       <br />
                       8:00 AM - 4:00 PM
@@ -267,34 +283,38 @@ export default function ContactPage() {
               </div>
 
               {/* Social Media */}
-              <div className="mt-8 pt-8 border-t">
-                <h3 className="font-semibold text-gray-800 mb-4">
+              <div className="mt-8 pt-8 border-t border-neutral-200">
+                <h3 className="font-semibold text-neutral-800 mb-4">
                   Síguenos en redes sociales
                 </h3>
-                <div className="flex gap-4">
+                <div className="flex gap-3">
                   <a
                     href="#"
-                    className="w-10 h-10 bg-blue-600 text-white rounded-full flex items-center justify-center hover:bg-blue-700"
+                    className="w-12 h-12 bg-primary-600 hover:bg-primary-700 text-white rounded-xl flex items-center justify-center transition"
+                    aria-label="Facebook"
                   >
-                    f
+                    <Facebook className="w-5 h-5" />
                   </a>
                   <a
                     href="#"
-                    className="w-10 h-10 bg-sky-500 text-white rounded-full flex items-center justify-center hover:bg-sky-600"
+                    className="w-12 h-12 bg-primary-600 hover:bg-primary-700 text-white rounded-xl flex items-center justify-center transition"
+                    aria-label="Twitter"
                   >
-                    𝕏
+                    <Twitter className="w-5 h-5" />
                   </a>
                   <a
                     href="#"
-                    className="w-10 h-10 bg-red-600 text-white rounded-full flex items-center justify-center hover:bg-red-700"
+                    className="w-12 h-12 bg-primary-600 hover:bg-primary-700 text-white rounded-xl flex items-center justify-center transition"
+                    aria-label="YouTube"
                   >
-                    ▶
+                    <Youtube className="w-5 h-5" />
                   </a>
                   <a
                     href="#"
-                    className="w-10 h-10 bg-pink-600 text-white rounded-full flex items-center justify-center hover:bg-pink-700"
+                    className="w-12 h-12 bg-primary-600 hover:bg-primary-700 text-white rounded-xl flex items-center justify-center transition"
+                    aria-label="Instagram"
                   >
-                    📷
+                    <Instagram className="w-5 h-5" />
                   </a>
                 </div>
               </div>
@@ -304,11 +324,13 @@ export default function ContactPage() {
       </section>
 
       {/* Map Section */}
-      <section className="h-96 bg-gray-200 relative">
+      <section className="h-96 bg-neutral-100 relative">
         <div className="absolute inset-0 flex items-center justify-center">
           <div className="text-center">
-            <span className="text-6xl">🗺️</span>
-            <p className="text-gray-500 mt-4">
+            <div className="w-20 h-20 bg-neutral-200 rounded-2xl flex items-center justify-center mx-auto mb-4">
+              <Map className="w-10 h-10 text-neutral-400" />
+            </div>
+            <p className="text-neutral-500">
               Mapa de ubicación - Integración con Google Maps
             </p>
           </div>
