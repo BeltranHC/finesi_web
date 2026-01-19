@@ -25,7 +25,7 @@ export default async function NewsPage() {
   return (
     <div>
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-primary-900 via-primary-800 to-primary-950 text-white py-20 overflow-hidden">
+      <section className="relative bg-linear-to-br from-primary-900 via-primary-800 to-primary-950 text-white py-20 overflow-hidden">
         <div className="absolute inset-0 opacity-10">
           <div className="absolute top-10 right-20 w-64 h-64 bg-accent-500 rounded-full blur-3xl"></div>
         </div>
@@ -59,7 +59,7 @@ export default async function NewsPage() {
               {news[0] && (
                 <article className="mb-16 bg-white rounded-2xl shadow-lg overflow-hidden border border-neutral-100">
                   <div className="md:flex">
-                    <div className="md:w-1/2 h-64 md:h-auto bg-gradient-to-br from-primary-400 to-primary-600 flex items-center justify-center relative overflow-hidden">
+                    <div className="md:w-1/2 h-64 md:h-auto bg-linear-to-br from-primary-400 to-primary-600 flex items-center justify-center relative overflow-hidden">
                       {news[0].imageUrl ? (
                         <img
                           src={news[0].imageUrl}
@@ -107,7 +107,7 @@ export default async function NewsPage() {
                     key={item.id}
                     className="group bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-xl transition-all duration-300 border border-neutral-100"
                   >
-                    <div className="h-48 bg-gradient-to-br from-neutral-100 to-neutral-200 flex items-center justify-center relative overflow-hidden">
+                    <div className="h-48 bg-linear-to-br from-neutral-100 to-neutral-200 flex items-center justify-center relative overflow-hidden">
                       {item.imageUrl ? (
                         <img
                           src={item.imageUrl}
@@ -155,7 +155,7 @@ export default async function NewsPage() {
       </section>
 
       {/* Newsletter Section */}
-      <section className="py-24 bg-gradient-to-br from-primary-900 via-primary-800 to-primary-950 text-white relative overflow-hidden">
+      <section className="py-24 bg-linear-to-br from-primary-900 via-primary-800 to-primary-950 text-white relative overflow-hidden">
         <div className="absolute inset-0 opacity-10">
           <div className="absolute top-10 right-20 w-64 h-64 bg-accent-500 rounded-full blur-3xl"></div>
           <div className="absolute bottom-10 left-20 w-80 h-80 bg-primary-400 rounded-full blur-3xl"></div>

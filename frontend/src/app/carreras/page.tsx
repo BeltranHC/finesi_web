@@ -30,7 +30,7 @@ export default async function CareersPage() {
   return (
     <div>
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-primary-900 via-primary-800 to-primary-950 text-white py-20 overflow-hidden">
+      <section className="relative bg-linear-to-br from-primary-900 via-primary-800 to-primary-950 text-white py-20 overflow-hidden">
         <div className="absolute inset-0 opacity-10">
           <div className="absolute top-10 right-20 w-64 h-64 bg-accent-500 rounded-full blur-3xl"></div>
         </div>
@@ -70,7 +70,7 @@ export default async function CareersPage() {
                     className="group bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-xl transition-all duration-300 border border-neutral-100"
                   >
                     <div
-                      className={`h-48 bg-gradient-to-br ${colors.gradient} flex items-center justify-center relative overflow-hidden`}
+                      className={`h-48 bg-linear-to-br ${colors.gradient} flex items-center justify-center relative overflow-hidden`}
                     >
                       <div className="absolute inset-0 bg-black/10 group-hover:bg-black/0 transition-colors"></div>
                       <div className={`${colors.iconBg} w-20 h-20 rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform`}>

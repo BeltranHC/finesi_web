@@ -49,7 +49,7 @@ export default function Home() {
   return (
     <div>
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-primary-900 via-primary-800 to-primary-950 text-white py-24 overflow-hidden">
+      <section className="relative bg-linear-to-br from-primary-900 via-primary-800 to-primary-950 text-white py-24 overflow-hidden">
         {/* Background Pattern */}
         <div className="absolute inset-0 opacity-10">
           <div className="absolute top-20 left-10 w-72 h-72 bg-accent-500 rounded-full blur-3xl"></div>
@@ -130,7 +130,7 @@ export default function Home() {
                 key={career.slug}
                 className="group bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-xl transition-all duration-300 border border-neutral-100"
               >
-                <div className={`h-48 bg-gradient-to-br ${career.gradient} flex items-center justify-center relative overflow-hidden`}>
+                <div className={`h-48 bg-linear-to-br ${career.gradient} flex items-center justify-center relative overflow-hidden`}>
                   <div className="absolute inset-0 bg-black/10 group-hover:bg-black/0 transition-colors"></div>
                   <div className={`${career.iconBg} w-20 h-20 rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform`}>
                     <career.icon className="w-10 h-10 text-white" />
@@ -178,7 +178,7 @@ export default function Home() {
                 key={item}
                 className="group bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-lg transition-all border border-neutral-100"
               >
-                <div className="h-48 bg-gradient-to-br from-neutral-200 to-neutral-300 flex items-center justify-center">
+                <div className="h-48 bg-linear-to-br from-neutral-200 to-neutral-300 flex items-center justify-center">
                   <BookOpen className="w-12 h-12 text-neutral-400" />
                 </div>
                 <div className="p-6">
@@ -217,7 +217,7 @@ export default function Home() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-24 bg-gradient-to-br from-primary-900 via-primary-800 to-primary-950 text-white relative overflow-hidden">
+      <section className="py-24 bg-linear-to-br from-primary-900 via-primary-800 to-primary-950 text-white relative overflow-hidden">
         {/* Background Pattern */}
         <div className="absolute inset-0 opacity-10">
           <div className="absolute top-10 right-20 w-64 h-64 bg-accent-500 rounded-full blur-3xl"></div>

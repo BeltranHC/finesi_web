@@ -24,7 +24,7 @@ export default async function TeachersPage() {
   return (
     <div>
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-primary-900 via-primary-800 to-primary-950 text-white py-20 overflow-hidden">
+      <section className="relative bg-linear-to-br from-primary-900 via-primary-800 to-primary-950 text-white py-20 overflow-hidden">
         <div className="absolute inset-0 opacity-10">
           <div className="absolute top-10 right-20 w-64 h-64 bg-accent-500 rounded-full blur-3xl"></div>
         </div>
@@ -59,7 +59,7 @@ export default async function TeachersPage() {
                   key={teacher.id}
                   className="group bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-xl transition-all duration-300 border border-neutral-100"
                 >
-                  <div className="h-48 bg-gradient-to-br from-neutral-100 to-neutral-200 flex items-center justify-center relative overflow-hidden">
+                  <div className="h-48 bg-linear-to-br from-neutral-100 to-neutral-200 flex items-center justify-center relative overflow-hidden">
                     {teacher.imageUrl ? (
                       <img
                         src={teacher.imageUrl}
