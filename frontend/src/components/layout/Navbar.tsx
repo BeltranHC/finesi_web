@@ -33,12 +33,22 @@ export default function Navbar() {
             </span>
           </div>
           <div className="flex items-center gap-4 ml-auto">
-            <Link href="/intranet" className="hover:text-accent-400 transition text-primary-200">
+            <a 
+              href="https://campus.unap.edu.pe" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="hover:text-accent-400 transition text-primary-200"
+            >
               Intranet
-            </Link>
-            <Link href="/biblioteca" className="hover:text-accent-400 transition text-primary-200">
+            </a>
+            <a 
+              href="https://biblioteca.unap.edu.pe/opac_css/index.php?lvl=section_see&location=19" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="hover:text-accent-400 transition text-primary-200"
+            >
               Biblioteca Virtual
-            </Link>
+            </a>
           </div>
         </div>
       </div>
