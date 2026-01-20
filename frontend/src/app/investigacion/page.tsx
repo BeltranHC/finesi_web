@@ -394,7 +394,7 @@ export default function InvestigacionPage() {
                     <p className="text-sm text-neutral-600 mb-1">{pub.autores}</p>
                     <p className="text-sm text-neutral-500 italic">{pub.revista}</p>
                   </div>
-                  <div className="flex-shrink-0">
+                  <div className="shrink-0">
                     <button className="p-2 text-neutral-400 hover:text-primary-600 hover:bg-primary-50 rounded-lg transition-colors">
                       <ExternalLink className="w-5 h-5" />
                     </button>
