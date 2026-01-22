@@ -48,7 +48,7 @@ export default async function CareersPage() {
       </section>
 
       {/* Careers Grid */}
-      <section className="py-20">
+      <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
           {careers.length === 0 ? (
             <div className="text-center py-16">
@@ -64,7 +64,7 @@ export default async function CareersPage() {
               {careers.map((career) => {
                 const IconComponent = careerIcons[career.slug] || GraduationCap;
                 const colors = careerColors[career.slug] || { gradient: "from-neutral-600 to-neutral-800", iconBg: "bg-neutral-500" };
-                
+
                 return (
                   <article
                     key={career.id}
@@ -113,7 +113,7 @@ export default async function CareersPage() {
                         href={`/carreras/${career.slug}`}
                         className="inline-flex items-center gap-2 text-primary-600 font-semibold hover:text-primary-800 transition group/link"
                       >
-                        Ver más información 
+                        Ver más información
                         <ArrowRight className="w-4 h-4 group-hover/link:translate-x-1 transition-transform" />
                       </Link>
                     </div>

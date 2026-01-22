@@ -24,16 +24,17 @@ export default async function TeachersPage() {
   return (
     <div>
       {/* Hero Section */}
-      <section className="relative bg-linear-to-br from-primary-900 via-primary-800 to-primary-950 text-white py-20 overflow-hidden">
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-10 right-20 w-64 h-64 bg-accent-500 rounded-full blur-3xl"></div>
+      <section className="relative bg-linear-to-br from-white via-primary-50 to-accent-50 py-20 overflow-hidden">
+        <div className="absolute inset-0 opacity-20">
+          <div className="absolute top-10 right-20 w-64 h-64 bg-accent-400 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-10 left-10 w-48 h-48 bg-primary-400 rounded-full blur-3xl"></div>
         </div>
         <div className="container mx-auto px-4 relative z-10">
-          <span className="inline-block bg-accent-500/20 text-accent-300 px-4 py-2 rounded-full text-sm font-medium mb-6 border border-accent-500/30">
+          <span className="inline-block bg-accent-500/20 text-accent-700 px-4 py-2 rounded-full text-sm font-medium mb-6 border border-accent-500/30">
             Equipo Académico
           </span>
-          <h1 className="text-4xl md:text-5xl font-bold mb-6">Nuestros Docentes</h1>
-          <p className="text-xl text-primary-200 max-w-2xl leading-relaxed">
+          <h1 className="text-4xl md:text-5xl font-bold mb-6 text-neutral-800">Nuestros Docentes</h1>
+          <p className="text-xl text-neutral-600 max-w-2xl leading-relaxed">
             Conoce a nuestro equipo de profesionales altamente calificados,
             comprometidos con la excelencia académica.
           </p>
@@ -41,7 +42,7 @@ export default async function TeachersPage() {
       </section>
 
       {/* Teachers Grid */}
-      <section className="py-20">
+      <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
           {teachers.length === 0 ? (
             <div className="text-center py-16">
@@ -82,7 +83,7 @@ export default async function TeachersPage() {
                     <p className="text-neutral-500 text-sm mb-4">
                       {teacher.email}
                     </p>
-                    
+
                     {teacher.specialization && (
                       <div className="mb-4">
                         <div className="flex items-center gap-2 text-sm font-semibold text-neutral-700 mb-2">
@@ -105,7 +106,7 @@ export default async function TeachersPage() {
                       href={`/docentes/${teacher.id}`}
                       className="inline-flex items-center gap-2 text-primary-600 font-semibold hover:text-primary-800 transition group/link"
                     >
-                      Ver perfil completo 
+                      Ver perfil completo
                       <ArrowRight className="w-4 h-4 group-hover/link:translate-x-1 transition-transform" />
                     </Link>
                   </div>
@@ -121,8 +122,8 @@ export default async function TeachersPage() {
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
             {stats.map((stat, index) => (
-              <div 
-                key={index} 
+              <div
+                key={index}
                 className="text-center p-6 bg-white rounded-2xl shadow-sm hover:shadow-md transition-shadow"
               >
                 <div className="w-14 h-14 bg-primary-100 rounded-xl flex items-center justify-center mx-auto mb-4">

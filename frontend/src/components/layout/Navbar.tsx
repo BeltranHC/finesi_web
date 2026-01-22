@@ -29,21 +29,21 @@ export default function Navbar() {
             </span>
             <span className="flex items-center gap-2 text-primary-200">
               <Phone className="w-4 h-4" />
-              +51 123 456 789
+              +51 951 627 530
             </span>
           </div>
           <div className="flex items-center gap-4 ml-auto">
-            <a 
-              href="https://campus.unap.edu.pe" 
-              target="_blank" 
+            <a
+              href="https://campus.unap.edu.pe"
+              target="_blank"
               rel="noopener noreferrer"
               className="hover:text-accent-400 transition text-primary-200"
             >
               Intranet
             </a>
-            <a 
-              href="https://biblioteca.unap.edu.pe/opac_css/index.php?lvl=section_see&location=19" 
-              target="_blank" 
+            <a
+              href="https://biblioteca.unap.edu.pe/opac_css/index.php?lvl=section_see&location=19"
+              target="_blank"
               rel="noopener noreferrer"
               className="hover:text-accent-400 transition text-primary-200"
             >
