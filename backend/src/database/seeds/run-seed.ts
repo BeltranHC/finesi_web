@@ -1,5 +1,9 @@
+import { config } from 'dotenv';
 import { DataSource } from 'typeorm';
 import { seedDatabase } from './seed';
+
+// Load environment variables from .env file
+config();
 
 const dataSource = new DataSource({
   type: 'postgres',

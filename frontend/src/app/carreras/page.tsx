@@ -30,16 +30,17 @@ export default async function CareersPage() {
   return (
     <div>
       {/* Hero Section */}
-      <section className="relative bg-linear-to-br from-primary-900 via-primary-800 to-primary-950 text-white py-20 overflow-hidden">
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-10 right-20 w-64 h-64 bg-accent-500 rounded-full blur-3xl"></div>
+      <section className="relative bg-linear-to-br from-white via-primary-50 to-accent-50 py-20 overflow-hidden">
+        <div className="absolute inset-0 opacity-20">
+          <div className="absolute top-10 right-20 w-64 h-64 bg-accent-400 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-10 left-10 w-48 h-48 bg-primary-400 rounded-full blur-3xl"></div>
         </div>
         <div className="container mx-auto px-4 relative z-10">
-          <span className="inline-block bg-accent-500/20 text-accent-300 px-4 py-2 rounded-full text-sm font-medium mb-6 border border-accent-500/30">
+          <span className="inline-block bg-accent-500/20 text-accent-700 px-4 py-2 rounded-full text-sm font-medium mb-6 border border-accent-500/30">
             Formación Académica
           </span>
-          <h1 className="text-4xl md:text-5xl font-bold mb-6">Nuestras Carreras</h1>
-          <p className="text-xl text-primary-200 max-w-2xl leading-relaxed">
+          <h1 className="text-4xl md:text-5xl font-bold mb-6 text-neutral-800">Nuestras Carreras</h1>
+          <p className="text-xl text-neutral-600 max-w-2xl leading-relaxed">
             Formamos profesionales de excelencia preparados para liderar la
             transformación digital y la toma de decisiones basada en datos.
           </p>
