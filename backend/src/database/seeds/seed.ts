@@ -16,25 +16,34 @@ export async function seedDatabase(dataSource: DataSource): Promise<void> {
     where: { email: 'admin@finesi.edu.pe' },
   });
 
-  if (existingAdmin) {
+  const existingTeachers = await teacherRepository.count();
+
+  if (existingAdmin && existingTeachers > 0) {
     console.log('Database already seeded, skipping...');
     return;
   }
 
   console.log('Seeding database...');
 
-  // Create admin user
-  const adminPassword = await hash('admin123', 10);
-  const admin = userRepository.create({
-    email: 'admin@finesi.edu.pe',
-    password: adminPassword,
-    firstName: 'Administrador',
-    lastName: 'FINESI',
-    role: UserRole.ADMIN,
-    isActive: true,
-  });
-  await userRepository.save(admin);
-  console.log('Admin user created');
+  // Flag to skip already seeded entities
+  const skipUsers = !!existingAdmin;
+
+  // Create admin user (skip if already exists)
+  if (!skipUsers) {
+    const adminPassword = await hash('admin123', 10);
+    const admin = userRepository.create({
+      email: 'admin@finesi.edu.pe',
+      password: adminPassword,
+      firstName: 'Administrador',
+      lastName: 'FINESI',
+      role: UserRole.ADMIN,
+      isActive: true,
+    });
+    await userRepository.save(admin);
+    console.log('Admin user created');
+  } else {
+    console.log('Admin user already exists, skipping...');
+  }
 
   // Create careers
   const careers = [
@@ -88,11 +97,16 @@ export async function seedDatabase(dataSource: DataSource): Promise<void> {
     },
   ];
 
-  for (const careerData of careers) {
-    const career = careerRepository.create(careerData);
-    await careerRepository.save(career);
+  const existingCareers = await careerRepository.count();
+  if (existingCareers === 0) {
+    for (const careerData of careers) {
+      const career = careerRepository.create(careerData);
+      await careerRepository.save(career);
+    }
+    console.log('Careers created');
+  } else {
+    console.log('Careers already exist, skipping...');
   }
-  console.log('Careers created');
 
   // Get saved careers to link with teachers
   const savedCareers = await careerRepository.find();
@@ -174,11 +188,15 @@ export async function seedDatabase(dataSource: DataSource): Promise<void> {
     },
   ];
 
-  for (const teacherData of teachers) {
-    const teacher = teacherRepository.create(teacherData);
-    await teacherRepository.save(teacher);
+  if (existingTeachers === 0) {
+    for (const teacherData of teachers) {
+      const teacher = teacherRepository.create(teacherData);
+      await teacherRepository.save(teacher);
+    }
+    console.log('Teachers created');
+  } else {
+    console.log('Teachers already exist, skipping...');
   }
-  console.log('Teachers created');
 
 
   // Create sample news
@@ -222,11 +240,16 @@ export async function seedDatabase(dataSource: DataSource): Promise<void> {
       },
     ];
 
-  for (const newsItem of newsItems) {
-    const newsEntity = newsRepository.create(newsItem);
-    await newsRepository.save(newsEntity);
+  const existingNews = await newsRepository.count();
+  if (existingNews === 0) {
+    for (const newsItem of newsItems) {
+      const newsEntity = newsRepository.create(newsItem);
+      await newsRepository.save(newsEntity);
+    }
+    console.log('News created');
+  } else {
+    console.log('News already exist, skipping...');
   }
-  console.log('News created');
 
   console.log('Database seeding completed!');
 }
