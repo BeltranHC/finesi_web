@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { MapPin, Mail, Phone, Facebook, Twitter, Linkedin, GraduationCap } from "lucide-react";
+import { MapPin, Mail, Phone, Facebook, Twitter, Linkedin } from "lucide-react";
 
 export default function Footer() {
   return (
@@ -9,8 +9,12 @@ export default function Footer() {
           {/* About */}
           <div>
             <div className="flex items-center gap-3 mb-6">
-              <div className="w-10 h-10 bg-white rounded-xl flex items-center justify-center">
-                <GraduationCap className="w-6 h-6 text-primary-900" />
+              <div className="w-12 h-12 bg-white rounded-xl flex items-center justify-center overflow-hidden p-1">
+                <img
+                  src="/logo-epiei.png"
+                  alt="Logo EPIEI"
+                  className="w-full h-full object-contain"
+                />
               </div>
               <h3 className="text-xl font-bold">FINESI</h3>
             </div>
