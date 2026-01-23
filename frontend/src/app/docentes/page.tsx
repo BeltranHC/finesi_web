@@ -29,15 +29,29 @@ export default async function TeachersPage() {
           <div className="absolute top-10 right-20 w-64 h-64 bg-accent-400 rounded-full blur-3xl"></div>
           <div className="absolute bottom-10 left-10 w-48 h-48 bg-primary-400 rounded-full blur-3xl"></div>
         </div>
-        <div className="container mx-auto px-4 relative z-10">
-          <span className="inline-block bg-accent-500/20 text-accent-700 px-4 py-2 rounded-full text-sm font-medium mb-6 border border-accent-500/30">
-            Equipo Académico
-          </span>
-          <h1 className="text-4xl md:text-5xl font-bold mb-6 text-neutral-800">Nuestros Docentes</h1>
-          <p className="text-xl text-neutral-600 max-w-2xl leading-relaxed">
-            Conoce a nuestro equipo de profesionales altamente calificados,
-            comprometidos con la excelencia académica.
-          </p>
+        <div className="container mx-auto px-8 lg:px-16 relative z-10">
+          <div className="grid lg:grid-cols-2 items-center gap-12">
+            <div>
+              <span className="inline-block bg-accent-500/20 text-accent-700 px-4 py-2 rounded-full text-sm font-medium mb-6 border border-accent-500/30">
+                Equipo Académico
+              </span>
+              <h1 className="text-4xl md:text-5xl font-bold mb-6 text-neutral-800">Nuestros Docentes</h1>
+              <p className="text-xl text-neutral-600 max-w-2xl leading-relaxed">
+                Conoce a nuestro equipo de profesionales altamente calificados,
+                comprometidos con la excelencia académica.
+              </p>
+            </div>
+            <div className="hidden lg:flex items-center justify-center">
+              <div className="relative group">
+                <div className="absolute inset-0 bg-primary-500/10 blur-3xl scale-90 group-hover:scale-110 transition-all duration-500"></div>
+                <img
+                  src="/logo-epiei.png"
+                  alt="Escudo EPIEI"
+                  className="relative w-56 h-56 xl:w-64 xl:h-64 object-contain drop-shadow-xl group-hover:scale-105 transition-transform duration-500"
+                />
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
