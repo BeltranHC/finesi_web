@@ -1,10 +1,10 @@
 import Link from "next/link";
-import { 
-  FlaskConical, 
-  BookOpen, 
-  Users, 
-  Award, 
-  FileText, 
+import {
+  FlaskConical,
+  BookOpen,
+  Users,
+  Award,
+  FileText,
   ExternalLink,
   TrendingUp,
   Lightbulb,
@@ -167,15 +167,29 @@ export default function InvestigacionPage() {
           <div className="absolute top-10 right-20 w-64 h-64 bg-accent-500 rounded-full blur-3xl"></div>
           <div className="absolute bottom-10 left-20 w-80 h-80 bg-primary-400 rounded-full blur-3xl"></div>
         </div>
-        <div className="container mx-auto px-4 relative z-10">
-          <span className="inline-block bg-accent-500/20 text-accent-300 px-4 py-2 rounded-full text-sm font-medium mb-6 border border-accent-500/30">
-            Generación de Conocimiento
-          </span>
-          <h1 className="text-4xl md:text-5xl font-bold mb-6">Investigación</h1>
-          <p className="text-xl text-primary-200 max-w-3xl leading-relaxed">
-            Impulsamos la investigación científica y tecnológica para contribuir al desarrollo 
-            de la región y el país, formando investigadores de alto nivel y generando conocimiento aplicado.
-          </p>
+        <div className="container mx-auto px-8 lg:px-16 relative z-10">
+          <div className="grid lg:grid-cols-2 items-center gap-12">
+            <div>
+              <span className="inline-block bg-accent-500/20 text-accent-300 px-4 py-2 rounded-full text-sm font-medium mb-6 border border-accent-500/30">
+                Generación de Conocimiento
+              </span>
+              <h1 className="text-4xl md:text-5xl font-bold mb-6">Investigación</h1>
+              <p className="text-xl text-primary-200 max-w-3xl leading-relaxed">
+                Impulsamos la investigación científica y tecnológica para contribuir al desarrollo
+                de la región y el país, formando investigadores de alto nivel y generando conocimiento aplicado.
+              </p>
+            </div>
+            <div className="hidden lg:flex items-center justify-center">
+              <div className="relative group">
+                <div className="absolute inset-0 bg-accent-500/20 blur-3xl scale-90 group-hover:scale-110 transition-all duration-500"></div>
+                <img
+                  src="/logo-epiei.png"
+                  alt="Escudo EPIEI"
+                  className="relative w-56 h-56 xl:w-64 xl:h-64 object-contain drop-shadow-2xl group-hover:scale-105 transition-transform duration-500"
+                />
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -184,7 +198,7 @@ export default function InvestigacionPage() {
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
             {estadisticas.map((stat, index) => (
-              <div 
+              <div
                 key={index}
                 className="group text-center p-6 bg-neutral-50 rounded-2xl hover:bg-primary-50 hover:-translate-y-1 transition-all duration-300"
               >
@@ -205,7 +219,7 @@ export default function InvestigacionPage() {
           <div className="absolute top-20 left-10 w-72 h-72 bg-blue-200/20 rounded-full blur-3xl"></div>
           <div className="absolute bottom-20 right-10 w-80 h-80 bg-purple-200/20 rounded-full blur-3xl"></div>
         </div>
-        
+
         <div className="container mx-auto px-4 relative z-10">
           <div className="text-center mb-16">
             <span className="inline-block bg-primary-100 text-primary-700 px-4 py-2 rounded-full text-sm font-medium mb-4">
@@ -221,7 +235,7 @@ export default function InvestigacionPage() {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {lineasInvestigacion.map((linea, index) => (
-              <div 
+              <div
                 key={index}
                 className="group bg-white p-6 rounded-2xl shadow-md hover:shadow-xl hover:-translate-y-2 transition-all duration-300 border border-neutral-100"
               >
@@ -267,7 +281,7 @@ export default function InvestigacionPage() {
 
           <div className="grid md:grid-cols-2 gap-8">
             {gruposInvestigacion.map((grupo, index) => (
-              <div 
+              <div
                 key={index}
                 className="group bg-neutral-50 p-8 rounded-2xl hover:bg-white hover:shadow-xl transition-all duration-300 border border-transparent hover:border-neutral-100"
               >
@@ -281,16 +295,16 @@ export default function InvestigacionPage() {
                     </h3>
                   </div>
                 </div>
-                
+
                 <p className="text-neutral-600 text-sm leading-relaxed mb-4">
                   {grupo.descripcion}
                 </p>
-                
+
                 <div className="flex items-center gap-2 text-sm text-neutral-500 mb-4">
                   <Users className="w-4 h-4" />
                   <span>Líder: {grupo.lider}</span>
                 </div>
-                
+
                 <div className="flex gap-6 pt-4 border-t border-neutral-200">
                   <div className="text-center">
                     <p className="text-2xl font-bold text-primary-700">{grupo.miembros}</p>
@@ -324,16 +338,15 @@ export default function InvestigacionPage() {
 
           <div className="grid lg:grid-cols-3 gap-8">
             {proyectosDestacados.map((proyecto, index) => (
-              <div 
+              <div
                 key={index}
                 className="bg-white p-6 rounded-2xl shadow-md hover:shadow-xl hover:-translate-y-2 transition-all duration-300 border border-neutral-100"
               >
                 <div className="flex items-center gap-2 mb-4">
-                  <span className={`inline-block px-3 py-1 rounded-full text-xs font-medium ${
-                    proyecto.estado === "En ejecución" 
-                      ? "bg-green-100 text-green-700" 
+                  <span className={`inline-block px-3 py-1 rounded-full text-xs font-medium ${proyecto.estado === "En ejecución"
+                      ? "bg-green-100 text-green-700"
                       : "bg-blue-100 text-blue-700"
-                  }`}>
+                    }`}>
                     {proyecto.estado}
                   </span>
                   <span className="text-xs text-neutral-500 flex items-center gap-1">
@@ -341,14 +354,14 @@ export default function InvestigacionPage() {
                     {proyecto.periodo}
                   </span>
                 </div>
-                
+
                 <h3 className="text-lg font-bold text-neutral-800 mb-3">
                   {proyecto.titulo}
                 </h3>
                 <p className="text-neutral-600 text-sm leading-relaxed mb-4">
                   {proyecto.descripcion}
                 </p>
-                
+
                 <div className="pt-4 border-t border-neutral-100">
                   <span className="text-xs text-neutral-500">Financiamiento:</span>
                   <span className="text-sm font-medium text-primary-700 ml-2">{proyecto.financiamiento}</span>
@@ -376,7 +389,7 @@ export default function InvestigacionPage() {
 
           <div className="max-w-4xl mx-auto space-y-4">
             {publicacionesRecientes.map((pub, index) => (
-              <div 
+              <div
                 key={index}
                 className="group bg-neutral-50 p-6 rounded-xl hover:bg-white hover:shadow-lg transition-all duration-300 border border-transparent hover:border-neutral-100"
               >
@@ -422,13 +435,13 @@ export default function InvestigacionPage() {
           <div className="absolute top-10 right-20 w-64 h-64 bg-accent-500 rounded-full blur-3xl"></div>
           <div className="absolute bottom-10 left-20 w-80 h-80 bg-primary-400 rounded-full blur-3xl"></div>
         </div>
-        
+
         <div className="container mx-auto px-4 text-center relative z-10">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">
             ¿Interesado en Colaborar?
           </h2>
           <p className="text-xl text-primary-200 mb-10 max-w-2xl mx-auto leading-relaxed">
-            Estamos abiertos a colaboraciones con instituciones, empresas e investigadores 
+            Estamos abiertos a colaboraciones con instituciones, empresas e investigadores
             para desarrollar proyectos de investigación conjuntos.
           </p>
           <div className="flex flex-wrap gap-4 justify-center">
