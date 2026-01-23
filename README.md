@@ -36,6 +36,29 @@ finesi_web/
 └── README.md
 ```
 
+## ✨ Características del Frontend
+
+### Páginas Disponibles
+
+| Página          | Ruta              | Descripción                                      |
+| --------------- | ----------------- | ------------------------------------------------ |
+| **Inicio**      | `/`               | Hero section con insignia EPIEI, estadísticas   |
+| **Nosotros**    | `/nosotros`       | Historia, misión, visión, autoridades            |
+| **Carreras**    | `/carreras`       | Listado de carreras profesionales                |
+| **Docentes**    | `/docentes`       | Directorio de docentes                           |
+| **Investigación** | `/investigacion` | Líneas de investigación, publicaciones          |
+| **Noticias**    | `/noticias`       | Noticias y eventos de la facultad                |
+| **Contacto**    | `/contacto`       | Formulario de contacto con Google Maps           |
+
+### Mejoras Visuales
+
+- 🎨 **Insignia EPIEI** en hero sections de todas las páginas
+- ✨ **Animaciones CSS** personalizadas (fade-in, slide-up, scale-in)
+- 🔗 **Active link highlighting** en navegación
+- 🪟 **Glass morphism** y efectos de blur
+- 📱 **Diseño responsive** para móviles y tablets
+- 🗺️ **Google Maps** integrado en página de contacto
+
 ## ⚙️ Requisitos Previos
 
 - Node.js 20+
