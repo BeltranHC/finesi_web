@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { MapPin, Phone, Mail, Clock, Facebook, Twitter, Youtube, Instagram, Send, Map, CheckCircle, AlertCircle } from "lucide-react";
+import { MapPin, Phone, Mail, Clock, Facebook, Twitter, Youtube, Instagram, Send, CheckCircle, AlertCircle } from "lucide-react";
 
 interface ContactFormData {
   name: string;
@@ -324,17 +324,18 @@ export default function ContactPage() {
       </section>
 
       {/* Map Section */}
-      <section className="h-96 bg-neutral-100 relative">
-        <div className="absolute inset-0 flex items-center justify-center">
-          <div className="text-center">
-            <div className="w-20 h-20 bg-neutral-200 rounded-2xl flex items-center justify-center mx-auto mb-4">
-              <Map className="w-10 h-10 text-neutral-400" />
-            </div>
-            <p className="text-neutral-500">
-              Mapa de ubicación - Integración con Google Maps
-            </p>
-          </div>
-        </div>
+      <section className="h-96 relative">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3840.5234567890123!2d-70.0191!3d-15.8244!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x915d69e1d0b1c7ed%3A0x8b5d5e5e5e5e5e5e!2sUniversidad%20Nacional%20del%20Altiplano!5e0!3m2!1ses!2spe!4v1705000000000!5m2!1ses!2spe"
+          width="100%"
+          height="100%"
+          style={{ border: 0 }}
+          allowFullScreen
+          loading="lazy"
+          referrerPolicy="no-referrer-when-downgrade"
+          title="Ubicación FINESI - Universidad Nacional del Altiplano"
+          className="grayscale hover:grayscale-0 transition-all duration-500"
+        ></iframe>
       </section>
     </div>
   );
