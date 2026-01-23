@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useState } from "react";
-import { Mail, Phone, Menu, X, GraduationCap } from "lucide-react";
+import { Mail, Phone, Menu, X } from "lucide-react";
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -58,8 +58,12 @@ export default function Navbar() {
         <div className="flex justify-between items-center">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-3 group">
-            <div className="w-12 h-12 bg-white rounded-xl flex items-center justify-center shadow-md group-hover:shadow-lg transition-shadow">
-              <GraduationCap className="w-7 h-7 text-primary-900" />
+            <div className="w-12 h-12 bg-white rounded-xl flex items-center justify-center shadow-md group-hover:shadow-lg transition-shadow overflow-hidden p-1">
+              <img
+                src="/logo-epiei.png"
+                alt="Logo EPIEI"
+                className="w-full h-full object-contain"
+              />
             </div>
             <div>
               <h1 className="text-xl font-bold tracking-tight">FINESI</h1>
