@@ -1,11 +1,18 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { Mail, Phone, Menu, X } from "lucide-react";
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const pathname = usePathname();
+
+  const isActiveLink = (href: string) => {
+    if (href === "/") return pathname === "/";
+    return pathname.startsWith(href);
+  };
 
   const navLinks = [
     { href: "/", label: "Inicio" },
@@ -79,7 +86,10 @@ export default function Navbar() {
               <li key={link.href}>
                 <Link
                   href={link.href}
-                  className="px-4 py-2 rounded-lg hover:bg-primary-800 hover:text-accent-400 transition-all font-medium text-sm"
+                  className={`px-4 py-2 rounded-lg transition-all font-medium text-sm ${isActiveLink(link.href)
+                      ? "bg-accent-500 text-white shadow-md"
+                      : "hover:bg-primary-800 hover:text-accent-400"
+                    }`}
                 >
                   {link.label}
                 </Link>
@@ -108,7 +118,10 @@ export default function Navbar() {
               <li key={link.href}>
                 <Link
                   href={link.href}
-                  className="block py-3 px-4 hover:bg-primary-800 rounded-lg hover:text-accent-400 transition"
+                  className={`block py-3 px-4 rounded-lg transition ${isActiveLink(link.href)
+                      ? "bg-accent-500 text-white"
+                      : "hover:bg-primary-800 hover:text-accent-400"
+                    }`}
                   onClick={() => setIsMenuOpen(false)}
                 >
                   {link.label}
