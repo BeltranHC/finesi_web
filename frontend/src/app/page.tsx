@@ -1,10 +1,10 @@
 import Link from "next/link";
-import { 
-  BarChart3, 
-  Monitor, 
-  Settings, 
-  Users, 
-  GraduationCap, 
+import {
+  BarChart3,
+  Monitor,
+  Settings,
+  Users,
+  GraduationCap,
   BookOpen,
   Clock,
   ArrowRight,
@@ -55,35 +55,52 @@ export default function Home() {
           <div className="absolute top-20 left-10 w-72 h-72 bg-accent-500 rounded-full blur-3xl"></div>
           <div className="absolute bottom-10 right-10 w-96 h-96 bg-primary-400 rounded-full blur-3xl"></div>
         </div>
-        
-        <div className="container mx-auto px-4 relative z-10">
-          <div className="max-w-3xl">
-            <span className="inline-block bg-accent-500/20 text-accent-300 px-4 py-2 rounded-full text-sm font-medium mb-6 border border-accent-500/30">
-              Universidad Nacional del Altiplano
-            </span>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
-              Facultad de Ingeniería Estadística e Informática
-            </h1>
-            <p className="text-xl text-primary-200 mb-10 leading-relaxed">
-              Formamos profesionales de excelencia en ciencia de datos,
-              estadística e ingeniería de sistemas, preparados para resolver los
-              desafíos del mundo digital.
-            </p>
-            <div className="flex flex-wrap gap-4">
-              <Link
-                href="/admision"
-                className="group bg-accent-500 hover:bg-accent-600 hover:scale-105 active:scale-95 text-white px-8 py-4 rounded-xl font-semibold transition-all duration-300 shadow-lg hover:shadow-xl hover:shadow-accent-500/40 shadow-accent-500/25 flex items-center gap-2"
-              >
-                Proceso de Admisión
-                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-              </Link>
-              <Link
-                href="/carreras"
-                className="group border-2 border-primary-400 hover:border-accent-400 hover:bg-accent-400/10 hover:scale-105 active:scale-95 px-8 py-4 rounded-xl font-semibold transition-all duration-300 flex items-center gap-2"
-              >
-                Conoce Nuestras Carreras
-                <ChevronRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-              </Link>
+
+        <div className="container mx-auto px-8 lg:px-16 relative z-10">
+          <div className="grid lg:grid-cols-2 items-center gap-12 lg:gap-16">
+            {/* Contenido de texto */}
+            <div className="text-center lg:text-left">
+              <span className="inline-block bg-accent-500/20 text-accent-300 px-4 py-2 rounded-full text-sm font-medium mb-6 border border-accent-500/30">
+                Universidad Nacional del Altiplano
+              </span>
+              <h1 className="text-4xl md:text-5xl lg:text-5xl xl:text-6xl font-bold mb-6 leading-tight">
+                Facultad de Ingeniería Estadística e Informática
+              </h1>
+              <p className="text-lg lg:text-xl text-primary-200 mb-10 leading-relaxed">
+                Formamos profesionales de excelencia en ciencia de datos,
+                estadística e ingeniería de sistemas, preparados para resolver los
+                desafíos del mundo digital.
+              </p>
+              <div className="flex flex-wrap gap-4 justify-center lg:justify-start">
+                <Link
+                  href="/admision"
+                  className="group bg-accent-500 hover:bg-accent-600 hover:scale-105 active:scale-95 text-white px-8 py-4 rounded-xl font-semibold transition-all duration-300 shadow-lg hover:shadow-xl hover:shadow-accent-500/40 shadow-accent-500/25 flex items-center gap-2"
+                >
+                  Proceso de Admisión
+                  <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                </Link>
+                <Link
+                  href="/carreras"
+                  className="group border-2 border-primary-400 hover:border-accent-400 hover:bg-accent-400/10 hover:scale-105 active:scale-95 px-8 py-4 rounded-xl font-semibold transition-all duration-300 flex items-center gap-2"
+                >
+                  Conoce Nuestras Carreras
+                  <ChevronRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                </Link>
+              </div>
+            </div>
+
+            {/* Insignia EPIEI */}
+            <div className="hidden lg:flex items-center justify-center">
+              <div className="relative group">
+                {/* Glow effect behind the logo */}
+                <div className="absolute inset-0 bg-accent-500/20 blur-3xl scale-90 group-hover:scale-110 group-hover:bg-accent-400/30 transition-all duration-500"></div>
+                {/* Logo */}
+                <img
+                  src="/logo-epiei.png"
+                  alt="Escudo EPIEI - Facultad de Ingeniería Estadística e Informática"
+                  className="relative w-72 h-72 xl:w-80 xl:h-80 object-contain drop-shadow-2xl group-hover:scale-105 transition-transform duration-500"
+                />
+              </div>
             </div>
           </div>
         </div>
@@ -94,8 +111,8 @@ export default function Home() {
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
             {stats.map((stat, index) => (
-              <div 
-                key={index} 
+              <div
+                key={index}
                 className="group text-center p-6 bg-white rounded-2xl shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300 cursor-default"
               >
                 <div className="w-14 h-14 bg-primary-100 group-hover:bg-primary-200 rounded-xl flex items-center justify-center mx-auto mb-4 transition-colors duration-300 group-hover:scale-110">
@@ -117,7 +134,7 @@ export default function Home() {
           <div className="absolute bottom-20 right-10 w-80 h-80 bg-purple-200/30 rounded-full blur-3xl"></div>
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-emerald-200/20 rounded-full blur-3xl"></div>
         </div>
-        
+
         <div className="container mx-auto px-4 relative z-10">
           <div className="text-center mb-16">
             <span className="inline-block bg-primary-100 text-primary-700 px-4 py-2 rounded-full text-sm font-medium mb-4">
@@ -130,10 +147,10 @@ export default function Home() {
               Elige la carrera que mejor se adapte a tus intereses y comienza tu camino hacia el éxito profesional.
             </p>
           </div>
-          
+
           <div className="grid md:grid-cols-3 gap-8">
             {careers.map((career) => (
-              <article 
+              <article
                 key={career.slug}
                 className="group bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 border border-neutral-100"
               >
@@ -160,7 +177,7 @@ export default function Home() {
                     href={`/carreras/${career.slug}`}
                     className="inline-flex items-center gap-2 text-primary-600 font-semibold hover:text-primary-800 transition group/link"
                   >
-                    Más información 
+                    Más información
                     <ArrowRight className="w-4 h-4 group-hover/link:translate-x-1 transition-transform" />
                   </Link>
                 </div>
@@ -184,7 +201,7 @@ export default function Home() {
               Mantente al día con los eventos, logros y novedades de nuestra facultad.
             </p>
           </div>
-          
+
           <div className="grid md:grid-cols-3 gap-8">
             {[1, 2, 3].map((item) => (
               <article
@@ -209,14 +226,14 @@ export default function Home() {
                     href={`/noticias/${item}`}
                     className="group/link inline-flex items-center gap-2 text-primary-600 font-semibold text-sm hover:text-primary-800 transition-all"
                   >
-                    Leer más 
+                    Leer más
                     <ArrowRight className="w-4 h-4 group-hover/link:translate-x-1 transition-transform" />
                   </Link>
                 </div>
               </article>
             ))}
           </div>
-          
+
           <div className="text-center mt-12">
             <Link
               href="/noticias"
@@ -236,7 +253,7 @@ export default function Home() {
           <div className="absolute top-10 right-20 w-64 h-64 bg-accent-500 rounded-full blur-3xl"></div>
           <div className="absolute bottom-10 left-20 w-80 h-80 bg-primary-400 rounded-full blur-3xl"></div>
         </div>
-        
+
         <div className="container mx-auto px-4 text-center relative z-10">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">
             ¿Listo para formar parte de FINESI?
