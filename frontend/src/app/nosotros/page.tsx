@@ -1,10 +1,10 @@
-import { 
-  GraduationCap, 
-  Target, 
-  Eye, 
-  Award, 
-  Users, 
-  BookOpen, 
+import {
+  GraduationCap,
+  Target,
+  Eye,
+  Award,
+  Users,
+  BookOpen,
   Calendar,
   Building,
   TrendingUp,
@@ -123,7 +123,7 @@ export default function NosotrosPage() {
           </span>
           <h1 className="text-4xl md:text-5xl font-bold mb-6">Sobre Nosotros</h1>
           <p className="text-xl text-primary-200 max-w-3xl leading-relaxed">
-            La Facultad de Ingeniería Estadística e Informática de la Universidad Nacional del Altiplano 
+            La Facultad de Ingeniería Estadística e Informática de la Universidad Nacional del Altiplano
             es referente en la formación de profesionales en ciencia de datos, tecnología e información en el sur del Perú.
           </p>
         </div>
@@ -134,7 +134,7 @@ export default function NosotrosPage() {
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
             {estadisticas.map((stat, index) => (
-              <div 
+              <div
                 key={index}
                 className="group text-center p-6 bg-neutral-50 rounded-2xl hover:bg-primary-50 hover:-translate-y-1 transition-all duration-300"
               >
@@ -160,9 +160,9 @@ export default function NosotrosPage() {
               </div>
               <h2 className="text-2xl font-bold text-neutral-800 mb-4">Nuestra Misión</h2>
               <p className="text-neutral-600 leading-relaxed">
-                Formar profesionales competentes en Ingeniería Estadística, Informática y de Sistemas, 
-                con sólidos conocimientos científicos, tecnológicos y humanísticos, capaces de generar 
-                soluciones innovadoras que contribuyan al desarrollo sostenible de la región y el país, 
+                Formar profesionales competentes en Ingeniería Estadística, Informática y de Sistemas,
+                con sólidos conocimientos científicos, tecnológicos y humanísticos, capaces de generar
+                soluciones innovadoras que contribuyan al desarrollo sostenible de la región y el país,
                 mediante la investigación, la extensión universitaria y la proyección social.
               </p>
             </div>
@@ -174,9 +174,9 @@ export default function NosotrosPage() {
               </div>
               <h2 className="text-2xl font-bold text-neutral-800 mb-4">Nuestra Visión</h2>
               <p className="text-neutral-600 leading-relaxed">
-                Ser una facultad líder y referente a nivel nacional e internacional en la formación 
-                de profesionales en Ingeniería Estadística, Informática y de Sistemas, reconocida por 
-                su excelencia académica, investigación de alto impacto, y compromiso con la innovación 
+                Ser una facultad líder y referente a nivel nacional e internacional en la formación
+                de profesionales en Ingeniería Estadística, Informática y de Sistemas, reconocida por
+                su excelencia académica, investigación de alto impacto, y compromiso con la innovación
                 tecnológica y el desarrollo social.
               </p>
             </div>
@@ -201,7 +201,7 @@ export default function NosotrosPage() {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {valores.map((valor, index) => (
-              <div 
+              <div
                 key={index}
                 className="group p-6 bg-neutral-50 rounded-2xl hover:bg-white hover:shadow-lg hover:-translate-y-1 transition-all duration-300 border border-transparent hover:border-neutral-100"
               >
@@ -222,7 +222,7 @@ export default function NosotrosPage() {
           <div className="absolute top-20 left-10 w-72 h-72 bg-blue-200/20 rounded-full blur-3xl"></div>
           <div className="absolute bottom-20 right-10 w-80 h-80 bg-purple-200/20 rounded-full blur-3xl"></div>
         </div>
-        
+
         <div className="container mx-auto px-4 relative z-10">
           <div className="text-center mb-16">
             <span className="inline-block bg-accent-100 text-accent-700 px-4 py-2 rounded-full text-sm font-medium mb-4">
@@ -239,10 +239,10 @@ export default function NosotrosPage() {
           <div className="relative">
             {/* Timeline line */}
             <div className="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-primary-200 hidden lg:block"></div>
-            
+
             <div className="space-y-8">
               {historia.map((item, index) => (
-                <div 
+                <div
                   key={index}
                   className={`flex items-center gap-8 ${index % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'}`}
                 >
@@ -255,10 +255,10 @@ export default function NosotrosPage() {
                       <p className="text-neutral-600 text-sm leading-relaxed">{item.description}</p>
                     </div>
                   </div>
-                  
+
                   {/* Timeline dot */}
                   <div className="w-4 h-4 bg-primary-500 rounded-full border-4 border-primary-100 hidden lg:block z-10"></div>
-                  
+
                   <div className="flex-1 hidden lg:block"></div>
                 </div>
               ))}
@@ -284,7 +284,7 @@ export default function NosotrosPage() {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {autoridades.map((autoridad, index) => (
-              <div 
+              <div
                 key={index}
                 className="group text-center p-6 bg-neutral-50 rounded-2xl hover:bg-white hover:shadow-xl hover:-translate-y-2 transition-all duration-300 border border-transparent hover:border-neutral-100"
               >
@@ -304,7 +304,7 @@ export default function NosotrosPage() {
         <div className="absolute inset-0 opacity-10">
           <div className="absolute top-10 right-20 w-64 h-64 bg-accent-500 rounded-full blur-3xl"></div>
         </div>
-        
+
         <div className="container mx-auto px-4 relative z-10">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
@@ -315,11 +315,11 @@ export default function NosotrosPage() {
                 Infraestructura Moderna
               </h2>
               <p className="text-primary-200 leading-relaxed mb-8">
-                Contamos con laboratorios de cómputo equipados con tecnología de última generación, 
-                aulas multimedia, biblioteca especializada y espacios de trabajo colaborativo 
+                Contamos con laboratorios de cómputo equipados con tecnología de última generación,
+                aulas multimedia, biblioteca especializada y espacios de trabajo colaborativo
                 para el desarrollo integral de nuestros estudiantes.
               </p>
-              
+
               <div className="grid grid-cols-2 gap-4">
                 <div className="flex items-center gap-3">
                   <div className="w-10 h-10 bg-accent-500/20 rounded-lg flex items-center justify-center">
@@ -347,13 +347,18 @@ export default function NosotrosPage() {
                 </div>
               </div>
             </div>
-            
-            <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20">
-              <div className="aspect-video bg-primary-700/50 rounded-xl flex items-center justify-center">
-                <Building className="w-20 h-20 text-primary-300" />
+
+            <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20 hover:bg-white/15 transition-all duration-500">
+              <div className="aspect-video bg-linear-to-br from-primary-700/50 to-primary-900/50 rounded-xl flex items-center justify-center relative overflow-hidden group">
+                <div className="absolute inset-0 bg-accent-500/10 blur-2xl scale-75 group-hover:scale-100 transition-all duration-500"></div>
+                <img
+                  src="/logo-epiei.png"
+                  alt="Escudo EPIEI"
+                  className="relative w-32 h-32 xl:w-40 xl:h-40 object-contain drop-shadow-2xl group-hover:scale-110 transition-transform duration-500"
+                />
               </div>
               <p className="text-center text-primary-300 mt-4 text-sm">
-                Edificio de la Facultad de Ingeniería Estadística e Informática
+                Facultad de Ingeniería Estadística e Informática - UNAP
               </p>
             </div>
           </div>
